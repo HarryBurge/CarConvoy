@@ -1,0 +1,37 @@
+[settings]
+    arch=x86_64
+    build_type=Release
+    compiler=apple-clang
+    compiler.libcxx=libc++
+    compiler.version=11.0
+    os=Macos
+
+[requires]
+    glfw/3.Y.Z
+
+[options]
+
+
+[full_settings]
+    arch=x86_64
+    arch_build=x86_64
+    build_type=Release
+    compiler=apple-clang
+    compiler.libcxx=libc++
+    compiler.version=11.0
+    os=Macos
+    os_build=Macos
+
+[full_requires]
+    glfw/3.3.2:fa4ed2a503e5e942f251db310fad3394620833cc
+    opengl/system:5ab84d6acfe1f23c4fae0ab88f26e3a396351ac9
+
+[full_options]
+    glfw:fPIC=True
+    glfw:shared=False
+
+[recipe_hash]
+
+
+[env]
+
