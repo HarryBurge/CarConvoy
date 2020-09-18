@@ -5,6 +5,8 @@ CMakeFiles/main.dir/main.cpp.o
  /Users/hightorean/.conan/data/glfw/3.3.2/_/_/package/fa4ed2a503e5e942f251db310fad3394620833cc/include/GLFW/glfw3.h
  /Users/hightorean/Desktop/CarConvoy/bot.cpp
  /Users/hightorean/Desktop/CarConvoy/car.cpp
+ /Users/hightorean/Desktop/CarConvoy/control.cpp
  /Users/hightorean/Desktop/CarConvoy/main.cpp
  /Users/hightorean/Desktop/CarConvoy/obstacle.cpp
  /Users/hightorean/Desktop/CarConvoy/player.cpp
+ /Users/hightorean/Desktop/CarConvoy/visuals.cpp

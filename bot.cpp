@@ -1,6 +1,7 @@
+#ifndef BOT_H
+#define BOT_H
+
 /* Imports */
-#include<iostream>
-#include<math.h>
 #include<GLFW/glfw3.h>
 
 #include"car.cpp"
@@ -34,3 +35,5 @@ public:
         }
     }
 };
+
+#endif

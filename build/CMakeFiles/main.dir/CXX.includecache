@@ -51,10 +51,6 @@ GL/glu.h
 -
 
 /Users/hightorean/Desktop/CarConvoy/bot.cpp
-iostream
--
-math.h
--
 GLFW/glfw3.h
 -
 car.cpp
@@ -68,9 +64,17 @@ iostream
 math.h
 -
 
-/Users/hightorean/Desktop/CarConvoy/main.cpp
+/Users/hightorean/Desktop/CarConvoy/control.cpp
 iostream
 -
+player.cpp
+/Users/hightorean/Desktop/CarConvoy/player.cpp
+bot.cpp
+/Users/hightorean/Desktop/CarConvoy/bot.cpp
+obstacle.cpp
+/Users/hightorean/Desktop/CarConvoy/obstacle.cpp
+
+/Users/hightorean/Desktop/CarConvoy/main.cpp
 math.h
 -
 GLFW/glfw3.h
@@ -81,18 +85,24 @@ bot.cpp
 /Users/hightorean/Desktop/CarConvoy/bot.cpp
 obstacle.cpp
 /Users/hightorean/Desktop/CarConvoy/obstacle.cpp
+visuals.cpp
+/Users/hightorean/Desktop/CarConvoy/visuals.cpp
+control.cpp
+/Users/hightorean/Desktop/CarConvoy/control.cpp
 
 /Users/hightorean/Desktop/CarConvoy/obstacle.cpp
-iostream
--
 
 /Users/hightorean/Desktop/CarConvoy/player.cpp
-iostream
--
-math.h
--
 GLFW/glfw3.h
 -
 car.cpp
 /Users/hightorean/Desktop/CarConvoy/car.cpp
+iostream
+-
+
+/Users/hightorean/Desktop/CarConvoy/visuals.cpp
+math.h
+-
+GLFW/glfw3.h
+-
 

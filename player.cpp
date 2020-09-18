@@ -1,9 +1,11 @@
+#ifndef PLAYER_H
+#define PLAYER_H
+
 /* Imports */
-#include<iostream>
-#include<math.h>
 #include<GLFW/glfw3.h>
 
 #include"car.cpp"
+#include<iostream>
 
 using namespace std;
 
@@ -14,6 +16,7 @@ public:
 
         if (glfwGetKey(window, GLFW_KEY_A)) {
             angle = angle + turn;
+
         }
         if (glfwGetKey(window, GLFW_KEY_D)) {
             angle = angle - turn;
@@ -34,3 +37,5 @@ public:
         }
     }
 };
+
+#endif
