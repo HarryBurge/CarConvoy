@@ -24,47 +24,63 @@ public:
     float width = 0.2;
     float height = 0.1;
 
-    void calculate_car_frame(GLFWwindow* window) {
+    virtual void move(GLFWwindow* window){}
 
-        x = x + speed*cos(angle);
-        y = y + speed*sin(angle);
+    void calculate_car_frame(GLFWwindow* window, Car* car) {
+
+        car -> x += speed*cos(angle);
+        car -> y += speed*sin(angle);
         
-        if (speed > deaccleration) {
-            speed = speed - deaccleration;
-        } else if (speed < -deaccleration) {
-            speed = speed + deaccleration;
+        if (car -> speed > deaccleration) {
+            car -> speed -= deaccleration;
+        } else if (car -> speed < -deaccleration) {
+            car -> speed += deaccleration;
         } else {
-            speed = 0;
+            car -> speed = 0;
         }
     }
 
-    float * xs_of_object() {
+    float* x_corners(Car* car){
         /* Generate rectangle corners */
-        static float xs[4] = {x-width/2, x+width/2, x+width/2, x-width/2};
-        static float ys[4] = {y+height/2, y+height/2, y-height/2, y-height/2};
+        float* xs = new float[4];
 
-        /* Rotate rectangle corners around center */
+        xs[0] = car -> x -width/2;
+        xs[1] = car -> x+width/2;
+        xs[2] = car -> x+width/2;
+        xs[3] = car -> x-width/2;
+
+        float* ys = new float[4];
+
+        ys[0] = y + height/2;
+        ys[1] = car -> y + height/2;
+        ys[2] = car -> y - height/2;
+        ys[3] = car -> y - height/2;
+
         for (int i = 0; i < 4; i++){
-            float px = xs[i];
-            float py = ys[i];
-            xs[i] = cos(angle)*(px-x) - sin(angle)*(py-y) + x;
-            ys[i] = sin(angle)*(px-x) + cos(angle)*(py-y) + y;
+            xs[i] = cos(angle) * (xs[i]-x) - sin(angle) * (ys[i]-y) + x;
         }
 
         return xs;
     }
 
-    float * ys_of_object() {
+    float* y_corners(Car* car){
         /* Generate rectangle corners */
-        static float xs[4] = {x-width/2, x+width/2, x+width/2, x-width/2};
-        static float ys[4] = {y+height/2, y+height/2, y-height/2, y-height/2};
+        float* xs = new float[4];
 
-        /* Rotate rectangle corners around center */
+        xs[0] = car -> x -width/2;
+        xs[1] = car -> x+width/2;
+        xs[2] = car -> x+width/2;
+        xs[3] = car -> x-width/2;
+
+        float* ys = new float[4];
+
+        ys[0] = y + height/2;
+        ys[1] = car -> y + height/2;
+        ys[2] = car -> y - height/2;
+        ys[3] = car -> y - height/2;
+
         for (int i = 0; i < 4; i++){
-            float px = xs[i];
-            float py = ys[i];
-            xs[i] = cos(angle)*(px-x) - sin(angle)*(py-y) + x;
-            ys[i] = sin(angle)*(px-x) + cos(angle)*(py-y) + y;
+            ys[i] = sin(angle) * (xs[i]-x) + cos(angle) * (ys[i]-y) + y;
         }
 
         return ys;
