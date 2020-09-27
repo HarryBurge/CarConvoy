@@ -4,6 +4,7 @@
 /* Imports */
 #include<math.h>
 #include<GLFW/glfw3.h>
+#include<vector>
 #include<iostream>
 
 #include"util.cpp"
@@ -28,11 +29,17 @@ void render_triangle(Triangle body) {
     glEnd();
 }
 
-void render_all(Car* player, Car* bot[], Obstacle* walls[]) {
+void render_all(Car* player, vector<Car*> bot, vector<Obstacle*> walls) {
 
     render_quadrilatral(player -> body);
-    render_quadrilatral(bot[0] -> body);
-    render_triangle(walls[0] -> body);
+
+    for (int i=0; i<bot.size(); i++){
+        render_quadrilatral(bot[i] -> body);
+    }
+
+    for (int i=0; i<walls.size(); i++){
+        render_triangle(walls[i] -> body);
+    }
 }
 
 #endif

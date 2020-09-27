@@ -63,6 +63,8 @@ math.h
 -
 GLFW/glfw3.h
 -
+vector
+-
 sprites/car.cpp
 /Users/hightorean/Desktop/CarConvoy/sprites/car.cpp
 sprites/player.cpp
@@ -103,11 +105,15 @@ car.cpp
 /Users/hightorean/Desktop/CarConvoy/util.cpp
 math.h
 -
+iostream
+-
 
 /Users/hightorean/Desktop/CarConvoy/visuals.cpp
 math.h
 -
 GLFW/glfw3.h
+-
+vector
 -
 iostream
 -

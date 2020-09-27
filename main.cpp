@@ -4,6 +4,7 @@
 /* Imports */
 #include<math.h>
 #include<GLFW/glfw3.h>
+#include<vector>
 
 #include"sprites/car.cpp"
 #include"sprites/player.cpp"
@@ -23,7 +24,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 }
 
 
-int frame_loop(GLFWwindow* window, Car* player, Car* bot[], Obstacle* walls[]) {
+int frame_loop(GLFWwindow* window, Car* player, vector<Car*> bot, vector<Obstacle*> walls) {
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
@@ -60,12 +61,17 @@ int main() {
 
     /* Create cars */
     Car* player = new Player(0,0, 0);
-    Car* bot[1] = {new Bot(0,0.4, 0)};
+    vector<Car*> bot(1, new Bot(0,0.4, 0));
 
     /* Create obstacles */
     float ax[3] = {0.2, 0.4, 0.4};
     float ay[3] = {0.4, 0.2, 0.4};
-    Obstacle* walls[1] = {new Obstacle(ax, ay)};
+    
+    float ax2[3] = {-0.2, -0.4, -0.4};
+    float ay2[3] = {-0.4, -0.2, -0.4};
+    vector<Obstacle*> walls(2, new Obstacle(ax, ay));
+
+    walls[1] = new Obstacle(ax2, ay2);
 
     /* The main control loop */
     frame_loop(window, player, bot, walls);
