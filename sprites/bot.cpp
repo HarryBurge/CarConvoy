@@ -11,24 +11,30 @@ using namespace std;
 class Bot : public Car{
 public:
 
+    Bot(float x, float y, float angle, float width = 0.2, float height = 0.1)
+    : Car(x, y, angle, width, height)
+    {
+        
+    }
+
     void move(GLFWwindow* window) {
 
         if (glfwGetKey(window, GLFW_KEY_A)) {
-            angle = angle + turn;
+            rotate_car_by(turn);
         }
         if (glfwGetKey(window, GLFW_KEY_D)) {
-            angle = angle - turn;
+            rotate_car_by(-turn);
         }
         if (glfwGetKey(window, GLFW_KEY_W)) {
             if (speed < ftopspeed) {
-                speed = speed + accleration;
+                speed += accleration;
             } else {
                 speed = ftopspeed;
             }
         }
         if (glfwGetKey(window, GLFW_KEY_S)) {
             if (speed > btopspeed) {
-                speed = speed - accleration;
+                speed -= accleration;
             } else {
                 speed = btopspeed;
             }

@@ -5,10 +5,10 @@
 #include<math.h>
 #include<GLFW/glfw3.h>
 
-#include"car.cpp"
-#include"player.cpp"
-#include"bot.cpp"
-#include"obstacle.cpp"
+#include"sprites/car.cpp"
+#include"sprites/player.cpp"
+#include"sprites/bot.cpp"
+#include"static_sprites/obstacle.cpp"
 
 #include"visuals.cpp"
 #include"control.cpp"
@@ -23,7 +23,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 }
 
 
-int frame_loop(GLFWwindow* window, Car* player, Car* bot[], Obstacle walls[]) {
+int frame_loop(GLFWwindow* window, Car* player, Car* bot[], Obstacle* walls[]) {
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
@@ -59,16 +59,13 @@ int main() {
     glfwMakeContextCurrent(window);
 
     /* Create cars */
-    Car* player = new Player;
-    Car* bot[1] = {new Bot};
+    Car* player = new Player(0,0, 0);
+    Car* bot[1] = {new Bot(0,0.4, 0)};
 
     /* Create obstacles */
     float ax[3] = {0.2, 0.4, 0.4};
     float ay[3] = {0.4, 0.2, 0.4};
-    Obstacle walls[1] = {Obstacle(ax, ay)};
-
-    /* Move bot out of player */
-    // bot.x = -0.4;
+    Obstacle* walls[1] = {new Obstacle(ax, ay)};
 
     /* The main control loop */
     frame_loop(window, player, bot, walls);
@@ -76,6 +73,7 @@ int main() {
     glfwTerminate();
     delete player;
     delete bot[0];
+    delete walls[0];
     return 0;
 }
 

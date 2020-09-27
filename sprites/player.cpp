@@ -5,32 +5,36 @@
 #include<GLFW/glfw3.h>
 
 #include"car.cpp"
-#include<iostream>
 
 using namespace std;
 
 class Player : public Car{
 public:
 
+    Player(float x, float y, float angle, float width = 0.2, float height = 0.1)
+    : Car(x, y, angle, width, height)
+    {
+        
+    }
+
     void move(GLFWwindow* window) {
 
         if (glfwGetKey(window, GLFW_KEY_A)) {
-            angle = angle + turn;
-
+            rotate_car_by(turn);
         }
         if (glfwGetKey(window, GLFW_KEY_D)) {
-            angle = angle - turn;
+            rotate_car_by(-turn);
         }
         if (glfwGetKey(window, GLFW_KEY_W)) {
             if (speed < ftopspeed) {
-                speed = speed + accleration;
+                speed += accleration;
             } else {
                 speed = ftopspeed;
             }
         }
         if (glfwGetKey(window, GLFW_KEY_S)) {
             if (speed > btopspeed) {
-                speed = speed - accleration;
+                speed -= accleration;
             } else {
                 speed = btopspeed;
             }
